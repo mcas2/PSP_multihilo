@@ -9,14 +9,16 @@ public class HiloSumador extends Thread {
     }
 
     public void run() {
-        for (int i = 0; i < 300; i++) {
-            contador.incrementa();
-            // try {
-            //     sleep(100);
-            // } catch (InterruptedException e) {
-            //     e.printStackTrace();
-            // }
+        synchronized (contador) {
+            for (int i = 0; i < 300; i++) {
+                contador.incrementa();
+                // try {
+                //     sleep(100);
+                // } catch (InterruptedException e) {
+                //     e.printStackTrace();
+                // }
+            }
+            System.out.println(getName()+" contador vale "+contador.getValor());
         }
-        System.out.println(getName()+" contador vale "+contador.getValor());
     }
 }
