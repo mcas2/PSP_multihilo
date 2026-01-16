@@ -1,18 +1,20 @@
 package synchronizingthreads;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+
 public class Main {
     public static void main(String[] args) {
         Contador contador = new Contador(0);
-        Hilo h1 = new Hilo("h1", contador);
-        Hilo h2 = new Hilo("h2", contador);
-        Hilo h3 = new Hilo("h3", contador);
-        Hilo h4 = new Hilo("h4", contador);
-        Hilo h5 = new Hilo("h5", contador);
-        h1.start();
-        h2.start();
-        h3.start();
-        h4.start();
-        h5.start();
+        ArrayList<Hilo> hilos = new ArrayList<>(Arrays.asList(
+                new Hilo("h1", contador),
+                new Hilo("h2", contador),
+                new Hilo("h3", contador),
+                new Hilo("h4", contador),
+                new Hilo("h5", contador)));
+        for (Hilo hilo: hilos) {
+            hilo.start();
+        }
         System.out.println(contador.getValor());
     }
 }

@@ -10,11 +10,9 @@ public class Hilo extends Thread {
 
     @Override
     public void run() {
-        synchronized (contador) {
-            for (int i = 0; i < 5000; i++) {
-                contador.incrementa();
-            }
-            System.out.println(getName() + ": " + contador.getValor());
+        for (int i = 0; i < 5000; i++) {
+            contador.incrementa();
         }
+        System.out.println(getName() + ": " + contador.getValor());
     }
 }

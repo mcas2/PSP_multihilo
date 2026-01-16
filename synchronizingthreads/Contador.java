@@ -7,7 +7,7 @@ public class Contador {
         this.c = c;
     }
 
-    public void incrementa() {
+    public synchronized void incrementa() {
         c++;
     }
 
